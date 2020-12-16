@@ -1,0 +1,31 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: move2kube
+spec:
+  version: v0.1.0-rc.1
+  homepage: https://github.com/konveyor/move2kube
+  shortDescription: Migrate your application to run on Kubernetes
+  description: |
+    Migrating an application that wasn't written for k8s to run on k8s is
+    both time consuming and error prone. There is also a steep learning curve
+    when it comes to k8s. This plugin containerizes your application and
+    creates k8s resources need to get your app running on k8s.
+  caveats: |
+    * Work in progress, improving all the time.
+    * For some functionality a docker/container runtime and operator-sdk are needed.
+  platforms:
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      uri: https://github.com/konveyor/move2kube/releases/download/v0.1.0-rc.1/move2kube-v0.1.0-rc.1-darwin-amd64.tar.gz
+      sha256: 4aecf959bede19380a2f71769dd0d8f5ad7b7661c90226f981fdf9284539aaee
+      bin: move2kube/move2kube
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      uri: https://github.com/konveyor/move2kube/releases/download/v0.1.0-rc.1/move2kube-v0.1.0-rc.1-linux-amd64.tar.gz
+      sha256: 2ad74b4781b670005cce7d1c6dd80e74d7e3e3d983b891d3a24feb9f51db2881
+      bin: move2kube/move2kube
